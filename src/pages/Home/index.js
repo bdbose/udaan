@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import './style.scss';
 import { ReactComponent as Scroll } from '../../assets/scroll.svg';
 import UdaanVideo from '../../assets/udaan.mp4';
@@ -42,6 +42,8 @@ import DemoDonation from '../../assets/demo-to-donate.gif';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Modal from '../../component/Modal';
+import { db } from '../../firebase';
+import { doc, setDoc, getDoc } from 'firebase/firestore';
 
 const Goals = [
   {
@@ -194,6 +196,27 @@ const Home = () => {
   };
   const [open, setOpen] = useState(false);
   const [modalText, setModalText] = useState('');
+  const newsRef = useRef();
+  const addEmail = async () => {
+    try {
+      const re =
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      const validator = re.test(String(newsRef.current.value).toLowerCase());
+      if (!validator) {
+        return alert('Please add a valid email!');
+      }
+      const arr = await getDoc(doc(db, 'Udaan', 'subscribers'));
+
+      setDoc(doc(db, 'Udaan', 'subscribers'), {
+        email: [...arr.data().email, newsRef.current.value.toLowerCase()],
+      }).then((res) => {
+        alert('Thank You!');
+        newsRef.current.value = '';
+      });
+    } catch (err) {
+      alert(err.message);
+    }
+  };
   return (
     <>
       <Modal message={modalText} setOpen={setOpen} open={open} />
@@ -598,8 +621,8 @@ const Home = () => {
             Keep up with our latest news and events. Subscribe to our Newsletter
           </p>
           <div className='input-wrapper'>
-            <input type='email' placeholder='Email' />
-            <button>Subscribe</button>
+            <input ref={newsRef} type='email' placeholder='Email' />
+            <button onClick={addEmail}>Subscribe</button>
           </div>
         </div>
         <footer>
