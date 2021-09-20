@@ -452,7 +452,7 @@ const Home = () => {
               <button className='donate'>Donate</button>
               <h6>You will be redirected to our donation portal.</h6>
             </div>
-            <img src={DemoDonation} alt='' />
+            <img src={DemoDonation} style={{ width: '50%' }} alt='' />
           </div>
         </div>
         <div className='feature-wrapper'>

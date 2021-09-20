@@ -9,8 +9,10 @@ export const AuthProvider = ({ children }) => {
     const auth = getAuth();
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        setCurrentUser(user);
+        console.log(user);
+        return setCurrentUser(user);
       }
+      setCurrentUser(null);
     });
   }, []);
   return (
