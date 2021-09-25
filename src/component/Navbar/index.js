@@ -3,7 +3,7 @@
 
 import React, { useContext } from 'react';
 import './style.scss';
-import { ReactComponent as Logo } from '../../assets/Udaan.svg';
+import Logo from '../../assets/logo.svg';
 import { AuthContext } from '../../store';
 import { getAuth, signOut } from 'firebase/auth';
 
@@ -12,7 +12,18 @@ const Navbar = () => {
   const auth = getAuth();
   return (
     <nav className='navbar-wrapper'>
-      <Logo />
+      <img
+        src={Logo}
+        style={{
+          background: 'white',
+          borderRadius: '50%',
+          padding: '5px',
+          width: '70px',
+          height: '70px',
+          objectFit: 'contain',
+        }}
+        alt='Udaan logo'
+      />
       <div className='nav-elements'>
         <a href='/#about'>About</a>
         <a href='/#related-projects'>Related projects</a>

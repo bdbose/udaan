@@ -50,6 +50,19 @@
     video {
       width: 50%;
     }
+    .download-btn {
+      a {
+        font-family: Work Sans;
+        font-style: normal;
+        font-weight: 600;
+        color: #e7f1ff;
+
+        background: #fb5517;
+        border-radius: 26.0395px;
+        padding: 10px 20px;
+        margin-right: 10px;
+      }
+    }
     .project-detail-container {
       margin-left: 5vw;
       display: flex;
@@ -413,23 +426,29 @@
         .news-card {
           display: flex;
           margin-bottom: 20px;
+          width: 90%;
           h4 {
             font-family: Work Sans;
             font-style: normal;
             font-weight: normal;
-
             color: #fb5517;
+            font-weight: bold;
+            font-size: 20px;
             margin-bottom: 10px;
+          }
+          a {
+            color: #fb5517;
+            font-size: 14px;
           }
           span {
             font-family: Work Sans;
             font-style: normal;
             font-weight: normal;
             color: #040d19;
+            font-size: 14px;
           }
           img {
             width: 150px;
-            height: 150px;
             object-fit: cover;
             margin-right: 20px;
             filter: drop-shadow(9px 9px 50px rgba(0, 0, 0, 0.25));
@@ -508,6 +527,9 @@
     .pub-card {
       width: calc(25% - 40px) !important;
       margin: 20px !important;
+      height: 400px;
+      overflow: hidden;
+      text-overflow: ellipsis;
       padding: 20px;
       background: #f3f5f9;
       border: 0.991933px solid #d2d2d2;
@@ -810,4 +832,20 @@
   color: #e7f1ff;
   cursor: pointer;
   margin: 0 2vw;
+}
+.toggle-bar {
+  display: flex;
+  h2 {
+    background: #011633;
+    border-radius: 29px 29px 0px 0px;
+    font-family: Copse;
+    font-style: normal;
+    font-weight: normal;
+    color: #fb5517;
+    cursor: pointer;
+    padding: 10px 20px;
+  }
+  .not-active {
+    background: #02306f;
+  }
 }
