@@ -254,7 +254,7 @@ const Home = () => {
         </div>
 
         <div className='project-detail-wrapper'>
-          <video src={UdaanVideo} controls playsInline />
+          <video src={UdaanVideo} controls autoPlay muted />
           <div className='project-detail-container'>
             <h2>UDAAN - TRANSLATION WORKBENCH</h2>
             <span>Demonstration of our UDAAN translation tool.</span>
