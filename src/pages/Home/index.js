@@ -38,6 +38,7 @@ import Akshita from '../../assets/akshita.png';
 import P1 from '../../assets/p1.png';
 import P2 from '../../assets/p2.png';
 import DemoDonation from '../../assets/demo-to-donate.gif';
+import UsDonation from '../../assets/us_donation.gif';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -323,29 +324,24 @@ const Home = () => {
         <div className='about-wrapper' id='about'>
           <h1>About</h1>
           <p>
-            In India, every year, more than 1 crore students appear in CBSE,
-            ICSE, and state board class 10th and 12th exams.
-            <span>
-              {' '}
-              Out of these students, more than 65% students study in non-English
-              medium schools.
-            </span>{' '}
-            Often, such students when join higher education institutes where the
-            primary language of instruction is English, face language barriers.
-            Even when they wish to understand the content from supplementary
-            resources such as the internet or trying to keep up with
-            contemporary research, they face the similar issue. We are leaving
-            behind such potential minds.
+            In India, more than 1 crore students appear in CBSE, ICSE and Class
+            10 and 12 examinations every year. Among these students, over 65%
+            attend non-English-speaking medium schools. These students often
+            face language barriers when they join higher education institutions
+            whose primary language is English.Even when they want to understand
+            the content of additional resources such as the internet or try to
+            follow contemporary research, they face the same issue. We leave
+            behind such prospective minds
           </p>
           <p>
             The lack of native language instruction also has a significant
-            economic impact. Of the top twenty countries in GDP per capita, all
-            of them use the language of the common people for higher and
-            technical education. Most of these countries do not use English. In
-            the bottom twenty economies, most of the countries are those which
-            persist with a colonial language, not the mother tongue of the
-            majority of people. The transition to mother tongue education
-            requires significant investment in language infrastructure.
+            economic impact. Out of the top 20 per capita GDP countries, all use
+            the common language for higher and technical education. The majority
+            of these countries do not use English. In the bottom twenty
+            economies, most countries persist with a colonial language, not the
+            first language of the majority of people. The transition to native
+            language education requires significant investments in language
+            infrastructure.
           </p>
           <div className='card-wrapper'>
             <div className='card'>
@@ -377,101 +373,21 @@ const Home = () => {
             })}
           </div>
         </div>
-        <div className='team-wrapper' id='teams'>
-          <h1>Our Team</h1>
-          <div className='team-container'>
-            <h2>Technical Team</h2>
-            <div className='tech-team-conatainer'>
-              {Team.tech.map((i) => {
-                if (i.text) {
-                  return (
-                    <div
-                      className='team-card'
-                      onClick={() => {
-                        setOpen(true);
-                        setModalText(i.text);
-                      }}>
-                      <img src={i.img} alt='' />
-                      <h3>{i.name}</h3>
-                      <span>{i.desc}</span>
-                    </div>
-                  );
-                }
-                return (
-                  <a href={i.link}>
-                    <div className='team-card'>
-                      <img src={i.img} alt='' />
-                      <h3>{i.name}</h3>
-                      <span>{i.desc}</span>
-                    </div>
-                  </a>
-                );
-              })}
-            </div>
-          </div>
-          <div className='team-container'>
-            <h2>Students</h2>
-            <div className='student-team-conatainer'>
-              {Team.student.map((i) => {
-                return (
-                  <a href={i.link}>
-                    <div className='team-card student-card'>
-                      <img src={i.img} alt='' />
-                      <h3>{i.name}</h3>
-                      <span>{i.desc}</span>
-                    </div>
-                  </a>
-                );
-              })}
-            </div>
-          </div>
-          <div className='team-container'>
-            <h2>Interns</h2>
-            <div className='student-team-conatainer'>
-              {Team.intern.map((i) => {
-                return (
-                  <a href={i.link}>
-                    <div className='team-card intern-card'>
-                      <img src={i.img} alt='' />
-                      <h3>{i.name}</h3>
-                      <span>{i.desc}</span>
-                    </div>
-                  </a>
-                );
-              })}
-            </div>
-            <h2>Associated Publishers</h2>
 
-            <div className='associate-wrapper'>
-              <a href='https://www.garudaprakashan.com/about-us/'>
-                <div className='associate-card'>
-                  <img src={P1} alt='' />
-                  <h3>Garuda Prakashan</h3>
-                  <span>CEO, MD, Sankrant Sanu</span>
-                </div>
-              </a>
-              <div className='associate-card'>
-                <img src={P2} alt='' />
-                <h3>Somayaji Arnaal Publishers</h3>
-                <span>Founder, Ganesh Arnal</span>
-              </div>
-            </div>
-          </div>
-        </div>
         <div className='toggle-bar'>
           <h2
             className={toggle !== 0 && 'not-active'}
             onClick={() => {
               setToggle(0);
             }}>
-            Indian Donars
+            Indian Donors
           </h2>
           <h2
             className={toggle !== 1 && 'not-active'}
             onClick={() => {
               setToggle(1);
             }}>
-            US Donars
+            US Donors
           </h2>
         </div>
         {toggle ? (
@@ -512,7 +428,7 @@ const Home = () => {
                 </button>
                 <h6>You will be redirected to our donation portal.</h6>
               </div>
-              <img src={DemoDonation} style={{ width: '50%' }} alt='' />
+              <img src={UsDonation} style={{ width: '50%' }} alt='' />
             </div>
           </div>
         ) : (
@@ -732,7 +648,11 @@ const Home = () => {
         </div>
         <div className='publishers-wrapper' id='publications'>
           <h1>Publications</h1>
-          <Slider {...settings} slidesPerRow={4}>
+          <Slider
+            {...settings}
+            slidesPerRow={4}
+            autoplay={true}
+            autoplaySpeed={2000}>
             <div
               className='pub-card'
               onClick={() =>
@@ -1000,7 +920,11 @@ const Home = () => {
         </div>
         <div className='review-wrapper'>
           <h1>What they say?</h1>
-          <Slider {...settings} dots={true}>
+          <Slider
+            {...settings}
+            dots={true}
+            autoplay={true}
+            autoplaySpeed={2000}>
             <div className='quote-card'>
               <Quote id='quote' />
               <div className='quote-details'>
@@ -1061,6 +985,89 @@ const Home = () => {
             </div>
           </Slider>
         </div>
+
+        <div className='team-wrapper' id='teams'>
+          <h1>Our Team</h1>
+          <div className='team-container'>
+            <h2>Technical Team</h2>
+            <div className='tech-team-conatainer'>
+              {Team.tech.map((i) => {
+                if (i.text) {
+                  return (
+                    <div
+                      className='team-card'
+                      onClick={() => {
+                        setOpen(true);
+                        setModalText(i.text);
+                      }}>
+                      <img src={i.img} alt='' />
+                      <h3>{i.name}</h3>
+                      <span>{i.desc}</span>
+                    </div>
+                  );
+                }
+                return (
+                  <a href={i.link}>
+                    <div className='team-card'>
+                      <img src={i.img} alt='' />
+                      <h3>{i.name}</h3>
+                      <span>{i.desc}</span>
+                    </div>
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+          <div className='team-container'>
+            <h2>Students</h2>
+            <div className='student-team-conatainer'>
+              {Team.student.map((i) => {
+                return (
+                  <a href={i.link}>
+                    <div className='team-card student-card'>
+                      <img src={i.img} alt='' />
+                      <h3>{i.name}</h3>
+                      <span>{i.desc}</span>
+                    </div>
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+          <div className='team-container'>
+            <h2>Interns</h2>
+            <div className='student-team-conatainer'>
+              {Team.intern.map((i) => {
+                return (
+                  <a href={i.link}>
+                    <div className='team-card intern-card'>
+                      <img src={i.img} alt='' />
+                      <h3>{i.name}</h3>
+                      <span>{i.desc}</span>
+                    </div>
+                  </a>
+                );
+              })}
+            </div>
+            <h2>Associated Publishers</h2>
+
+            <div className='associate-wrapper'>
+              <a href='https://www.garudaprakashan.com/about-us/'>
+                <div className='associate-card'>
+                  <img src={P1} alt='' />
+                  <h3>Garuda Prakashan</h3>
+                  <span>CEO, MD, Sankrant Sanu</span>
+                </div>
+              </a>
+              <div className='associate-card'>
+                <img src={P2} alt='' />
+                <h3>Somayaji Arnaal Publishers</h3>
+                <span>Founder, Ganesh Arnal</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div className='contact-wrapper' id='contact'>
           <div className='contact-container'>
             <h1>Contact Us</h1>

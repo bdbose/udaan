@@ -52,12 +52,12 @@ const Navbar = () => {
           <option>ENG</option>
         </select>
       </div>
-      <button
+      {/* <button
         onClick={() => {
           window.location.href = '/#donation';
         }}>
         Donate
-      </button>
+      </button> */}
     </nav>
   );
 };

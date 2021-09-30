@@ -15,7 +15,7 @@ const Login = () => {
   const onSubmitSignIn = (data) => {
     signInWithEmailAndPassword(auth, data.email, data.password)
       .then((userCredential) => {
-        history.push('/');
+        history.push('/main');
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -28,7 +28,7 @@ const Login = () => {
         // Signed in
         updateProfile(auth.currentUser, { displayName: data.name })
           .then((res) => {
-            history.push('/');
+            history.push('/main');
           })
           .catch((err) => console.log(err));
       })
