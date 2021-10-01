@@ -223,6 +223,35 @@ const Home = () => {
       alert(err.message);
     }
   };
+  // useEffect(() => {
+
+  // },[modalText])
+  const DonatePopUp = () => {
+    setModalText(
+      <div className='donation-popup-wrapper'>
+        <h3>Choose an option</h3>
+        <div className='donation-popup'>
+          <h2
+            onClick={() => {
+              setToggle(0);
+              setOpen(false);
+              window.location.href = '/#donation';
+            }}>
+            Indian Donors
+          </h2>
+          <h2
+            onClick={() => {
+              setToggle(1);
+              setOpen(false);
+              window.location.href = '/#donation';
+            }}>
+            Us Donors
+          </h2>
+        </div>
+      </div>,
+    );
+    setOpen(true);
+  };
   return (
     <>
       <Modal message={modalText} setOpen={setOpen} open={open} />
@@ -240,9 +269,7 @@ const Home = () => {
             from English to Hindi and all Indian languages.{' '}
           </p>
           <div className='hero-btns'>
-            <button
-              className='donate'
-              onClick={() => (window.location.href = '/#donation')}>
+            <button className='donate' onClick={DonatePopUp}>
               Donate
             </button>
             <button
